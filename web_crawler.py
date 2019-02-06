@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-def get_links(url, domain):
+def get_links(url, domain): # function collects all links on the page which belong to the same domain name
   try:
     r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
@@ -20,7 +20,7 @@ def get_links(url, domain):
     print('Please check your internet connection')
 
 
-def get_data_url(url, domain):
+def get_data_url(url, domain): # function generates Python dictionary with the data from the link
   links = get_links(url, domain)
   try:
     r = requests.get(url)
